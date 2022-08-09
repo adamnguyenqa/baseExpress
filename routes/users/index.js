@@ -1,17 +1,17 @@
 const express = require("express");
 const router = express.Router();
 
-const createUserMiddleware = require("./createUser");
-const findUserByIdMiddleware = require("./findUserById");
-const updateUserByIdMiddleware = require("./updateUserById");
-const getAllUserMiddleware = require("./getAllUser");
-const deleteUserByIdMiddleware = require("./deleteUserById");
+const createUser = require("./createUser");
+const findUserById = require("./findUserById");
+const updateUserById = require("./updateUser");
+const getAllUser = require("./getAllUser");
+const deleteUserById = require("./deleteUserById");
 const authorization = require("../middleware/authorization");
 
-router.get("/:userId", authorization, findUserByIdMiddleware);
-router.get("/", authorization, getAllUserMiddleware);
-router.put("/:userId", authorization, updateUserByIdMiddleware);
-router.post("/", createUserMiddleware);
-router.delete("/:userId", authorization, deleteUserByIdMiddleware);
+router.get("/:userId", authorization, findUserById);
+router.get("/", authorization, getAllUser);
+router.put("/", authorization, updateUserById);
+router.post("/", createUser);
+router.delete("/:userId", authorization, deleteUserById);
 
 module.exports = router;

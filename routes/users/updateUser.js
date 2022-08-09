@@ -4,7 +4,7 @@ const bcrypt = require("bcrypt");
 const userExists = require("./userExists");
 
 module.exports = async (req, res) => {
-  const { userId } = req.params;
+  const { userId } = req.user;
 
   const user = await userExists(userId);
 
