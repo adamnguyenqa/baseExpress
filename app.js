@@ -6,7 +6,7 @@ const cors = require("cors");
 
 const dbInit = require("./models");
 const homeRouter = require("./routes/home/index");
-const loginRouter = require("./routes/login/index");
+const authRouter = require("./routes/auth/index");
 const usersRouter = require("./routes/users/index");
 
 // Init database
@@ -31,8 +31,8 @@ app.use(logger("dev"));
     router: homeRouter,
   },
   {
-    prefix: "/login",
-    router: loginRouter,
+    prefix: "/auth",
+    router: authRouter,
   },
   {
     prefix: "/users",
