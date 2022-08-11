@@ -8,6 +8,7 @@ const dbInit = require("./models");
 const homeRouter = require("./routes/home/index");
 const authRouter = require("./routes/auth/index");
 const usersRouter = require("./routes/users/index");
+const tokensRouter = require("./routes/tokens/index");
 
 // Init database
 dbInit();
@@ -37,6 +38,10 @@ app.use(logger("dev"));
   {
     prefix: "/users",
     router: usersRouter,
+  },
+  {
+    prefix: "/tokens",
+    router: tokensRouter,
   },
 ].map((item) => {
   app.use(`/api${item.prefix}`, item.router);

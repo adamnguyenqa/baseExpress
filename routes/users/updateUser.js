@@ -14,18 +14,18 @@ module.exports = async (req, res) => {
       req.body.password = await bcrypt.hash(req.body.password, 10);
     }
 
-    // if (req.body.username) {
-    //   const usernameExists = await users.findOne({
-    //     where: { username: req.body.username },
-    //   });
+    if (req.body.username) {
+      const usernameExists = await users.findOne({
+        where: { username: req.body.username },
+      });
 
-    //   if (usernameExists) {
-    //     return {
-    //       statusCode: 400,
-    //       message: "Username already exists",
-    //     };
-    //   }
-    // }
+      if (usernameExists) {
+        return {
+          statusCode: 400,
+          message: "Username already exists",
+        };
+      }
+    }
 
     await user.update({
       username: req.body?.username,
