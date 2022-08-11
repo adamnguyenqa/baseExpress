@@ -11,6 +11,9 @@ const users = sequelize.define(
     password: {
       type: Sequelize.STRING,
     },
+    role: {
+      type: Sequelize.ENUM(["CUSTOMER", "ADMIN", "GUESS"]),
+    },
   },
   {
     timestamps: true,

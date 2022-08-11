@@ -1,9 +1,10 @@
 const { responseCode } = require("../../const/index");
-
+const permissionCheck = require("../middleware");
 const userExists = require("./userExists");
 
 module.exports = async (req, res) => {
   const { userId } = req.params;
+
   const user = await userExists(userId);
 
   return res.json({

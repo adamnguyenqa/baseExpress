@@ -1,4 +1,4 @@
-const { verifyToken } = require("../../../util/token");
+const { verifyToken } = require("../../../utils/token");
 
 module.exports = async (req, res, next) => {
   const authHeader = req.headers.authorization;

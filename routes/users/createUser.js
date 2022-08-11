@@ -5,9 +5,9 @@ module.exports = async (req, res) => {
   try {
     const { username, password } = req.body;
     const passwordHashed = await bcrypt.hash(password, 10);
-    await users.create({ username, password: passwordHashed });
 
-    // console.log(await bcrypt.compare(password, passwordHashed));
+    const role = "GUESS";
+    await users.create({ username, password: passwordHashed, role });
 
     return res.json({
       statusCode: 200,
